@@ -3,14 +3,9 @@
 // import 'dart:math';
 import 'package:flutter/material.dart';
 
-class SignUpPage extends StatefulWidget {
+class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
-  @override
-  State<SignUpPage> createState() => _SignUpPageState();
-}
-
-class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -139,12 +134,15 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/home');
+                    },
                     style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        primary: const Color(0xffa3d3bc)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      primary: const Color(0xffa3d3bc),
+                    ),
                     child: const Text(
                       "Sign Up",
                       style:
@@ -160,34 +158,3 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 }
-
-// class Ico {
-//   final String text;
-//   final Icons name;
-//   final String password;
-
-//   Ico({required this.text, required this.name, required this.password});
-
-//   Widget textField(name) {
-//     return Padding(
-//       padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-//       child: TextField(
-//         decoration: InputDecoration(
-//           prefixIcon: const Icon(Icons.name, color: Color(0xff7aa39a)),
-//           suffixIcon:
-//               const Icon(Icons.visibility_off, color: Color(0xff7aa39a)),
-//           hintText: text,
-//           hintStyle: const TextStyle(
-//               color: Color(0xffdadada),
-//               fontSize: 16,
-//               fontWeight: FontWeight.w600,
-//               letterSpacing: 2),
-//           enabledBorder: const OutlineInputBorder(
-//             borderRadius: BorderRadius.all(Radius.circular(20)),
-//             borderSide: BorderSide(color: Color(0xff7aa39a)),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

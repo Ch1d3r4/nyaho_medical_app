@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nyaho_medical_app/home_page.dart';
 import 'package:nyaho_medical_app/signup_page.dart';
 import 'login_page.dart';
 
@@ -14,9 +15,10 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => const LogInPage(),
-          '/login': (context) => const LogInPage(),
+          '/': (context) => const HomePage(),
+          '/home': (context) => const HomePage(),
           '/signup': (context) => const SignUpPage(),
+          '/login': (context) => const LogInPage(),
         });
   }
 }

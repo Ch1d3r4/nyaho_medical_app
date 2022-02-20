@@ -1,13 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class LogInPage extends StatefulWidget {
+class LogInPage extends StatelessWidget {
   const LogInPage({Key? key}) : super(key: key);
 
-  @override
-  State<LogInPage> createState() => _LogInPageState();
-}
-
-class _LogInPageState extends State<LogInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,7 +127,9 @@ class _LogInPageState extends State<LogInPage> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/home');
+                  },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -144,31 +142,28 @@ class _LogInPageState extends State<LogInPage> {
                 ),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/signup');
-              },
-              child: Padding(
-                padding: const EdgeInsets.only(top: 10.0),
-                child: RichText(
-                  text: const TextSpan(
-                    text: "Don't have an account? ",
-                    style: TextStyle(
-                        color: Color(0xffa3d3cb),
-                        fontSize: 13,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: 2),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: "Sign up",
-                        style: TextStyle(
-                            color: Color(0xffdadada),
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: 2),
-                      ),
-                    ],
-                  ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: RichText(
+                text: TextSpan(
+                  text: "Don't have an account? ",
+                  style: const TextStyle(
+                      color: Color(0xffa3d3cb),
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 2),
+                  children: <TextSpan>[
+                    (TextSpan(
+                      text: "Sign up",
+                      style: const TextStyle(
+                          color: Color(0xffdadada),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 2),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () => Navigator.pushNamed(context, '/signup'),
+                    )),
+                  ],
                 ),
               ),
             ),
